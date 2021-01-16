@@ -1,0 +1,76 @@
+<ngx-spinner></ngx-spinner>
+<div fxLayout="row wrap" style="margin-top: 30px">
+  <div fxFlex.lg="20%" fxFlex.xs="5%" fxFlex="10%"></div>
+  <div fxFlex.lg="60%" fxFlex.xs="90%" fxFlex="80%">
+    <form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <mat-card class="search-card">
+        <mat-card-header>
+          <mat-card-title>{{ 'SEARCH_FORM.HEADER' | translate }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+            <mat-form-field appearance="fill" fxFlex.xs="48%" fxFlex="40%">
+              <mat-label>{{ 'SEARCH_FORM.TITLE' | translate }}</mat-label>
+              <input matInput type="text" formControlName="title">
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex.xs="48%" fxFlex="20%">
+              <mat-label>{{ 'SEARCH_FORM.PRICE_TYPE' | translate }}</mat-label>
+              <mat-select formControlName="priceType">
+                <mat-option [value]="type"
+                            *ngFor="let type of priceType">{{('SEARCH_FORM.PRICE_TYPE_OPTION.' + type) | translate}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex.xs="48%" fxFlex="20%">
+              <mat-label>{{ 'SEARCH_FORM.MIN_PRICE' | translate }}</mat-label>
+              <input matInput type="number" formControlName="minPrice">
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex.xs="48%" fxFlex="15%">
+              <mat-label>{{ 'SEARCH_FORM.MAX_PRICE' | translate }}</mat-label>
+              <input matInput type="number" formControlName="maxPrice">
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+        <mat-card-actions style="text-align: center">
+          <button style="margin-right: 2px" mat-flat-button color="primary" type="submit">Search</button>
+          <button style="margin-left: 2px" mat-flat-button color="warn" (click)="onClear()">Clear</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+    <div *ngIf="rooms && rooms.length > 0">
+      <div fxLayoutAlign="end center" style="margin-top: 20px">
+        <mat-form-field appearance="fill" fxFlex.xs="48%" fxFlex="20%">
+          <mat-label>{{'SORT_OPTION.SORT_BY' | translate}}</mat-label>
+          <mat-select [(ngModel)]="sort" (selectionChange)="onSort()">
+            <mat-option [value]="option.value"
+                        *ngFor="let option of sortOptions">{{('SORT_OPTION.' + option.key) | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" style="margin-top: 30px">
+        <div *ngFor="let room of rooms" fxFlex.xs="100%" fxFlex="33.33%" fxLayoutAlign="stretch" style="padding: 5px">
+          <mat-card class="room-card" [routerLink]="['/rooms', room._id]">
+            <img mat-card-image src="{{room.imageUrl}}"
+                 alt="Photo of a Shiba Inu">
+            <mat-card-header>
+              <mat-card-title>{{room.title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="room-card-content" style="text-align: right;">
+              <div
+                style="font-size: 16px">{{room.price | number}} {{('ROOM_DETAIL.PRICE_UNIT.' + room.priceType) | translate}}</div>
+              <div
+                style="font-size: 12px">{{'ROOM_DETAIL.CREATED_DATE' | translate}} {{room.updatedAt | date: 'dd/MM/yy HH:mm'}}</div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <mat-paginator fxLayout="row" fxLayoutAlign="center center"
+                     [length]="totalRoom"
+                     [pageIndex]="pageIndex"
+                     [pageSize]="size"
+                     [pageSizeOptions]="[12, 24]"
+                     (page)="onPage($event)">
+      </mat-paginator>
+    </div>
+  </div>
+  <div fxFlex.lg="20%" fxFlex.xs="5%" fxFlex="10%"></div>
+</div>

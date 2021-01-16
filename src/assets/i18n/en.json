@@ -1,0 +1,39 @@
+{
+  "TOOL_BAR": {
+    "HEADER": "RoomWeb"
+  },
+  "SEARCH_FORM": {
+    "HEADER": "Search",
+    "TITLE": "Title",
+    "PRICE_TYPE": "Price type",
+    "MIN_PRICE": "Min price",
+    "MAX_PRICE": "Max price",
+    "PRICE_TYPE_OPTION": {
+      "ALL": "All",
+      "DAILY": "Daily",
+      "MONTHLY": "Monthly",
+      "SALE": "Sale"
+    }
+  },
+  "ROOM_DETAIL": {
+    "DETAILS": "Details",
+    "DESCRIPTION": "Description",
+    "PRICE_UNIT": {
+      "DAILY": "Bath/Day",
+      "MONTHLY": "Bath/Month",
+      "SALE": "Baht"
+    },
+    "CREATED_DATE": "Created Date"
+  },
+  "SORT_OPTION": {
+    "SORT_BY": "Sort by",
+    "NEWEST": "Newest",
+    "OLDEST": "Oldest",
+    "HIGHEST_PRICE": "Highest Price",
+    "LOWEST_PRICE": "Lowest Price"
+  },
+  "BUTTON": {
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel"
+  }
+}

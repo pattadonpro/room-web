@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'room-web'`, () => {
+  it(`should have as title 'room-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('room-web');
+    expect(app.title).toEqual('room-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('room-web app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('room-app app is running!');
   });
 });

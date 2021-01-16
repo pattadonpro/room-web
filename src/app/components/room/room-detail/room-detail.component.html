@@ -1,0 +1,23 @@
+<div *ngIf="room">
+  <div fxLayout="row wrap" style="margin-top: 30px">
+    <div fxFlex.lg="20%" fxFlex.xs="5%" fxFlex="10%"></div>
+    <div fxFlex.lg="60%" fxFlex.xs="90%" fxFlex="80%">
+      <h1>{{room.title}}</h1>
+      <img src="{{room.imageUrl}}" style="max-height: 300px; max-width: 100%">
+      <h3>{{'ROOM_DETAIL.DETAILS' | translate}}</h3>
+      <div>
+        <div class="label">Price</div>
+        <div>{{room.price | number}} {{('ROOM_DETAIL.PRICE_UNIT.' + room.priceType) | translate}}</div>
+        <div class="label">{{'ROOM_DETAIL.CREATED_DATE' | translate}}</div>
+        <div>{{room.updatedAt | date: 'dd/MM/yy HH:mm'}}</div>
+      </div>
+      <h3>{{'ROOM_DETAIL.DESCRIPTION' | translate}}</h3>
+      <div>
+        <div *ngIf="room.description; else displayDash">{{room.description}}</div>
+        <ng-template #displayDash>-</ng-template>
+      </div>
+      <br>
+    </div>
+    <div fxFlex.lg="20%" fxFlex.xs="5%" fxFlex="10%"></div>
+  </div>
+</div>
