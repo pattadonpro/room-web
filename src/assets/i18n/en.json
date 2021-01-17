@@ -13,17 +13,21 @@
       "DAILY": "Daily",
       "MONTHLY": "Monthly",
       "SALE": "Sale"
+    },
+    "BUTTON": {
+      "SEARCH": "Search",
+      "CLEAR": "Clear"
     }
   },
   "ROOM_DETAIL": {
     "DETAILS": "Details",
     "DESCRIPTION": "Description",
+    "CREATED_DATE": "Created Date",
     "PRICE_UNIT": {
       "DAILY": "Bath/Day",
       "MONTHLY": "Bath/Month",
       "SALE": "Baht"
-    },
-    "CREATED_DATE": "Created Date"
+    }
   },
   "SORT_OPTION": {
     "SORT_BY": "Sort by",
@@ -31,9 +35,5 @@
     "OLDEST": "Oldest",
     "HIGHEST_PRICE": "Highest Price",
     "LOWEST_PRICE": "Lowest Price"
-  },
-  "BUTTON": {
-    "CONFIRM": "Confirm",
-    "CANCEL": "Cancel"
   }
 }
