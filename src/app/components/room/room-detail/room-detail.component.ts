@@ -37,10 +37,6 @@ export class RoomDetailComponent implements OnInit, OnDestroy {
       });
   }
 
-  displayPrice(price: number) {
-    return {value: price};
-  }
-
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RoomDetailComponent } from './room-detail.component';
+import {RoomDetailComponent} from './room-detail.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('RoomDetailComponent', () => {
   let component: RoomDetailComponent;
@@ -8,7 +11,12 @@ describe('RoomDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RoomDetailComponent ]
+      declarations: [ RoomDetailComponent ],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
+      ]
     })
     .compileComponents();
   }));
